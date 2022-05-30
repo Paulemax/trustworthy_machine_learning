@@ -1,0 +1,12 @@
+target/
+input/
+venv/
+*data/
+*__pycache__/
+.idea/
+.vscode/
+
+# Files that should be ignored
+*.png
+*.jpeg
+*.jpg
