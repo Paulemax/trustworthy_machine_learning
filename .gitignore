@@ -5,6 +5,7 @@ venv/
 *__pycache__/
 .idea/
 .vscode/
+*lightning_logs/
 
 # Files that should be ignored
 *.png
