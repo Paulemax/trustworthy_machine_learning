@@ -11,3 +11,5 @@ venv/
 *.png
 *.jpeg
 *.jpg
+exercise_6/corruptions.py
+exercise_6/pessimal_noise_matrix
