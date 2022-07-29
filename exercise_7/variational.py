@@ -14,6 +14,7 @@ class VI(nn.Module):
         self.out_mu = nn.Linear(in_features=1, out_features=1)
         self.out_log_var = nn.Linear(in_features=1, out_features=1)
         
+    # we can not backprob with sampling x so we repar... it so we have a distribution to another variable
     def reparametrize(self, mu, log_var):
         sigma = torch.exp(0.5 * log_var)
         eps = torch.randn_like(sigma)
@@ -25,11 +26,11 @@ class VI(nn.Module):
         log_var = self.out_log_var(out)
         return self.reparametrize(mu, log_var), mu, log_var
     
+
 def ll_gaussian(y, mu, log_var):
     sigma = torch.exp(0.5 * log_var)
     return -0.5 * torch.log(2 * torch.pi * sigma**2) - (1 / (2 * sigma**2))* (y-mu)**2
     
-
 
 def neg_elbo(y_pred, y, mu, log_var):
     # likelihood of observing y given variational distribution mu and sigma/log_var
